@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-01-14T05:05:20.274Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="GZSlsn1c7nLTTZGldj6R" version="16.2.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-01-14T21:01:46.629Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="lmfqPjBhe8rf_RjUVjvg" version="16.2.6" type="github">
   <diagram name="Page-1" id="2cc2dc42-3aac-f2a9-1cec-7a8b7cbee084">
-    <mxGraphModel dx="1641" dy="769" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1860" dy="872" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -108,9 +108,6 @@
         </mxCell>
         <mxCell id="tTyJ2uABb6z969umZ8tP-13" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.line;strokeColor=#999999;rounded=0;labelBackgroundColor=none;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" vertex="1" parent="tTyJ2uABb6z969umZ8tP-1">
           <mxGeometry y="310" width="1050" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="tTyJ2uABb6z969umZ8tP-14" value="Title 1" style="text;html=1;points=[];align=left;verticalAlign=top;spacingTop=-4;fontSize=15;fontFamily=Verdana" vertex="1" parent="tTyJ2uABb6z969umZ8tP-1">
-          <mxGeometry x="20" y="330" width="170" height="30" as="geometry" />
         </mxCell>
         <mxCell id="tTyJ2uABb6z969umZ8tP-19" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.line;strokeColor=#999999;rounded=0;labelBackgroundColor=none;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" vertex="1" parent="tTyJ2uABb6z969umZ8tP-1">
           <mxGeometry y="580" width="1050" height="20" as="geometry" />
@@ -273,6 +270,9 @@
         </mxCell>
         <mxCell id="tTyJ2uABb6z969umZ8tP-146" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=13;fontColor=#080808;" vertex="1" parent="tTyJ2uABb6z969umZ8tP-25">
           <mxGeometry x="340" y="700" width="130" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="tTyJ2uABb6z969umZ8tP-220" value="Add Games" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;mainText=;buttonStyle=round;fontSize=17;fontStyle=0;fillColor=none;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" vertex="1" parent="tTyJ2uABb6z969umZ8tP-25">
+          <mxGeometry x="185" y="330" width="370" height="30" as="geometry" />
         </mxCell>
         <mxCell id="tTyJ2uABb6z969umZ8tP-49" value="News-Related Image" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="50" y="380" width="430" height="110" as="geometry" />
