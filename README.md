@@ -1,5 +1,8 @@
 # LFG-App
 
+
+
+
 MVP Scope
 
 We are planning to create a social media type web application based around gaming for gamers. Think Good Reads for Gaming.
@@ -41,5 +44,8 @@ AAU I want to create statuses.
 AAU I want to reply to others comments on a game.
 AAU I want to like other users statuses and games played.
 AAU I want to be suggested games I should play next based on my previously played games.
+
+
+
 
 
