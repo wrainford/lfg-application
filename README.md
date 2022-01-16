@@ -35,6 +35,7 @@ AAU I will be able to have a profile with basic bio information about myself wit
 AAU I want to list my favorite games or games I have played.
 AAU I want to rate games on a 1-10 scale, with one decimal place. Ex. 5.5/10 
 AAU I want to add reviews for games I have played.
+
 Sprint 2 (Icebox)
 AAU I want to have information from my Discord account be presented on my profile - including things like current game I am playing, recently played games, and current status.
 AAU I want to add or update a new profile picture or avatar.
