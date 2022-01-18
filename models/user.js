@@ -1,4 +1,4 @@
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 // Creating UserSchema
 const userSchema = mongoose.Schema(
@@ -19,15 +19,16 @@ const userSchema = mongoose.Schema(
         },
         location: {
             type: String,
-            required: [true, "Provide your location"],
+    
         },
-        url: {
+        email: {
             type: String,
+            required: true,
         },
         discordId: {
             type: String,
         },
-        favoriteGames: [{mongoose.Schema.Types.ObjectId, ref:"Game"}],
+        favoriteGames: [{type: mongoose.Schema.Types.ObjectId, ref:"Game"}],
     },
     {
         timestamps: true,
