@@ -7,6 +7,8 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 /* ==== Internal Modules ==== */
+//Require Models for Mongoose
+require('./models')
 const routes = require('./routes/index')
 /* ==== Instanced Modules  ==== */
 const app = express();
