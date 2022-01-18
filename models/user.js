@@ -7,6 +7,16 @@ const userSchema = mongoose.Schema(
             type: String,
             required: [true, "Provide your name"],
         },
+        userName: {
+            type: String,
+            required: true,
+            maxLength: 20,
+        },
+        password: {
+            type: String,
+            required: true,
+            maxLength: 16,
+        },
         location: {
             type: String,
             required: [true, "Provide your location"],
