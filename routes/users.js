@@ -8,5 +8,7 @@ router.get('/:id', userCtrl.users.showUser);
 router.post('/', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
+
+
 module.exports = router;
 

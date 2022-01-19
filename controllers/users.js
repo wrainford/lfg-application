@@ -20,7 +20,7 @@ const showUser = (req, res) => {
     User.findById(req.params.id, function (err, foundUser) {
         if (err) return res.send(err);
         const context = {user: foundUser}
-        return res.render('users/show', { title: 'Profile',
+        return res.render('users/profile', { title: 'Profile',
             context
         })
     })
@@ -28,7 +28,7 @@ const showUser = (req, res) => {
 
 // NEW USER / CREATE ACCOUNT PAGE
 const newUser = (req, res) => {
-    res.render('users/new', {title: 'Create an Account'})
+    res.render('users/create', {title: 'Create an Account'})
 }
 
 
@@ -53,7 +53,7 @@ const createUser = (req, res, next) => {
             user.save(function (err) {
                 if (err) return res.send(err);
                 console.log(user)
-                return res.redirect('/users') // need to alter the redirect after user creates account
+                return res.redirect('users/profile') // need to alter the redirect after user creates account
             })
 
         }
@@ -74,7 +74,7 @@ const loginUser = (req, res, next) => {
                 return res.send(err)
             }
             if (result) {
-                return res.redirect('/users') //need to alter the redirect after user login
+                return res.redirect('users/profile') //need to alter the redirect after user login
             }
         })
     })
