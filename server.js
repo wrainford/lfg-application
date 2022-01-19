@@ -31,6 +31,11 @@ app.use(morgan('tiny'));
 app.get("/", (req, res) => {
     res.render('index')
 });
+
+//LOGIN ROUTE
+app.get("/login", (req, res => {
+    res.render('users/login')
+}))
 //404 Route
 /* ====  Server Listener  ==== */
 
