@@ -43,7 +43,7 @@ app.get("/login", (req, res) => {
 app.get("/create", (req,res) => {
     res.render("users/create")
 });
-
+app.use('/create', usersRouter)
 //404 Route
 /* ====  Server Listener  ==== */
 
