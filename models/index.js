@@ -1,4 +1,4 @@
-const mongoos = require('mongoose');
+const mongoose = require('mongoose');
 
 const db = mongoose.connection;
 
@@ -13,3 +13,8 @@ mongoose.connect(dbUrl)
 }).catch((err) => {
     console.log(`MongoDB Failed! Error: ${err}.`)
 })
+
+
+module.exports = {
+    User: require('./user'),
+}
