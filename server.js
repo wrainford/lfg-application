@@ -39,6 +39,11 @@ app.get("/login", (req, res) => {
     res.render('users/login')
 });
 
+//Account creation route
+app.get("/create", (req,res) => {
+    res.render("users/create")
+});
+
 //404 Route
 /* ====  Server Listener  ==== */
 
