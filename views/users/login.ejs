@@ -5,9 +5,18 @@
 
 <h4>Returning User? If So Login to Your Existing LFG Account Below!</h4>
 
-<form action="/<%=${User.id}=%>" method="post">
-
-
-</form>
+<form action="/login" method="POST">
+    <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login!</button>
+    </form>
+    <h4>Don't have an LFG account?<br> 
+       Then<a href="/create">Create an Account Here!</a></h4>
 
 <%- include("../partials/footer") %>
