@@ -10,6 +10,8 @@ const methodOverride = require('method-override');
 //Require Models for Mongoose
 require('./models')
 const routes = require('./routes/index')
+const usersRouter = require("./routes/users");
+const gamesRouter = require("./routes/games");
 /* ==== Instanced Modules  ==== */
 const app = express();
 /* ====  Configuration  ==== */
@@ -35,7 +37,8 @@ app.get("/", (req, res) => {
 //LOGIN ROUTE
 app.get("/login", (req, res) => {
     res.render('users/login')
-})
+});
+
 //404 Route
 /* ====  Server Listener  ==== */
 
