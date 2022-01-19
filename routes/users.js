@@ -5,7 +5,7 @@ const userCtrl = require('../controllers')
 router.get('/', userCtrl.users.index);
 router.get('/create', userCtrl.users.newUser);
 router.get('/:id', userCtrl.users.showUser);
-router.post('/create', userCtrl.users.createUser);
+router.post('/', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // NEW LOGIN ROUTE

@@ -43,7 +43,7 @@ app.get("/login", (req, res) => {
 app.get("/create", (req,res) => {
     res.render("users/create")
 });
-app.use('/users', usersRouter) // need to edit this and user routing for create account
+app.use('/create', usersRouter) // need to edit this and user routing for create account
 //404 Route
 /* ====  Server Listener  ==== */
 
