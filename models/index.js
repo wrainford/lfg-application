@@ -7,7 +7,11 @@ const dbUrl = process.env.DATABASE_URL;
 
 // MONGOOSE CONNECTION
 
-mongoose.connect(dbUrl)
+mongoose.connect(dbUrl, {
+    useNewUrlParser = true,
+    useCreateIndex: true,
+  useUnifiedTopology: true 
+})
 .then(() => {
     console.log(`MongoDB Atlas is connected successfully at ${db.host}:${db.port}!`)
 }).catch((err) => {
