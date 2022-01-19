@@ -8,7 +8,8 @@ router.get('/:id', userCtrl.users.showUser);
 router.post('/:id', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
-
+// NEW LOGIN ROUTE
+router.post('/:id', userCtrl.users.loginUser)
 
 module.exports = router;
 
