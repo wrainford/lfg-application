@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+
+<ul>
+    <% games.forEach(function(i) { %>
+        <li>
+            <p><%= i.title %></p>
+            <p><%= i.releaseDate %></p>
+            <p><%= i.genre %></p>
+            <p><%= i.rating %></p>
+        </li>
+    <% }); %>
+</ul>
+
+<%- include("../partials/footer") %>

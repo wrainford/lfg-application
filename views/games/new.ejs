@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<form action="/games" method="post">
+
+    <label>Title</label>
+    <input type="text" name="title">
+
+    <label>Release Date:</label>
+    <input type="text" name="releaseDate">
+
+    <label>Genre</label>
+    <input type="text" name="genre">
+
+    <label>Rating</label>
+    <select name="rating">
+        <option value="E">E</option>
+        <option value="E10+">E10+</option>
+        <option value="T">T</option>
+        <option value="M">M</option>
+        <option value="AO">AO</option>
+        <option value="RP">RP</option>
+    </select>
+
+    <input type="submit" value="Add Game">
+</form>
+
+<%- include("../partials/footer") %>
