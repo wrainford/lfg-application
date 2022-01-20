@@ -3,7 +3,10 @@
 <ul>
     <% games.forEach(function(i) { %>
         <li>
-            <p><%= i.title %></p>
+            <p>
+                <%= i.title %>
+                <a href="/games/<%= i._id %>">Info</a>
+            </p>
         </li>
     <% }); %>
 </ul>
