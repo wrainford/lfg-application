@@ -12,6 +12,9 @@ require('./models')
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
+
+
+
 /* ==== Instanced Modules  ==== */
 const app = express();
 /* ====  Configuration  ==== */
@@ -26,6 +29,8 @@ app.use(methodOverride('_method'));
 //server public files
 app.use(express.static('public'));
 //morgan
+
+
 app.use(morgan('tiny'));
 
 /* ====  Routes & Controllers  ==== */
@@ -43,7 +48,7 @@ app.get("/login", (req, res) => {
 app.get("/create", (req,res) => {
     res.render("users/create")
 });
-
+app.use('/create', usersRouter) // need to edit this and user routing for create account
 //404 Route
 /* ====  Server Listener  ==== */
 
