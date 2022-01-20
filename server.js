@@ -13,8 +13,18 @@ const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
 //Passport
-require('./passport')
-
+const initializePassport = require('./passport')
+initializePassport(
+    passport,
+    async (email) => {
+        const userFound = await User.findOne({ email })
+        return userFound
+    },
+    async (id) => {
+        const userFound = await User.findOne({ _id: id });
+        return userFound
+    }
+)
 
 /* ==== Instanced Modules  ==== */
 const app = express();
