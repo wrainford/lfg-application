@@ -128,5 +128,6 @@ module.exports = {
     createUser,
     destroyUser,
     loginUser,
+    createAccount,
 
 }

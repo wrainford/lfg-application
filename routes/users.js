@@ -7,7 +7,7 @@ router.get('/', userCtrl.users.index);
 router.get('/create', userCtrl.users.newUser);
 router.get('/:id', userCtrl.users.showUser);
 
-router.post('/', userCtrl.users.createUser);
+router.post('/', notLoggedIn, userCtrl.users.createAccount);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // Login Handling

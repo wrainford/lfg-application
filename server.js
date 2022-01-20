@@ -77,16 +77,3 @@ app.listen(PORT, () => {
     console.log(`LFG App is connected on port: ${PORT}`)
 });
 
-export function flash(): any {
-    throw new Error('Function not implemented.');
-}
-
-export function flash(): any {
-    throw new Error('Function not implemented.');
-}
-
-
-export function flash(): any {
-    throw new Error('Function not implemented.');
-}
-
