@@ -9,6 +9,9 @@ router.post('/', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // NEW LOGIN ROUTE
-router.post('/:id', userCtrl.users.loginUser)
-
+router.post('/login', passport.authenticate("local", {
+    successRedirect: "users/profile",
+    failureRedirect: "/login"
+}), function (req, res) {
+});
 module.exports = router;

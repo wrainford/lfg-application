@@ -33,7 +33,7 @@ app.use(express.static('public'));
 
 app.use(morgan('tiny'));
 
-app.use(require("express-session")({
+app.use(session({
     secret: "LFG App",
     resave: false,
     saveUninitialized: false
