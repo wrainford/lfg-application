@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const passport = require('passport')
-
+const flash = require('express-flash')
+const bcrypt = require('bcryptjs')
 // INDEX - will display all users
 
 const index = (req, res) => {
@@ -33,7 +34,7 @@ const newUser = (req, res) => {
 }
 
 
-// CREATE NEW USER
+// CREATE NEW USER - Previous version without bcrypt
 const createUser = (req, res, next) => {
     User.find({email: req.body.email})
     .exec()
@@ -56,10 +57,34 @@ const createUser = (req, res, next) => {
                 console.log(user)
                 return res.redirect('users/profile') // need to alter the redirect after user creates account
             })
-
         }
     })
-    
+}
+const createAccount = async (req, res) => {
+    const userFound = await User.findOne( { email: req.body.email})
+    if (userFound) {
+        req.flash('error', 'This email already exists! Please try another.')
+        res.redirect('/create')
+    }
+    else {
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = new User({
+                _id: new mongoose.Types.ObjectId(),
+                name: req.body.name,
+                userName: req.body.userName,
+                password: hashedPassword,
+                location: req.body.location,
+                email: req.body.email,
+                discordId: req.body.discordId,
+            })
+            await user.save()
+            res.redirect('/login');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/create')
+        }
+    }
 }
 
 // LOGGING IN USER

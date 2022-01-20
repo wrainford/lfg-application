@@ -6,13 +6,15 @@ const passport = require('passport');
 router.get('/', userCtrl.users.index);
 router.get('/create', userCtrl.users.newUser);
 router.get('/:id', userCtrl.users.showUser);
+
 router.post('/', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // Login Handling
-router.post('/login', passport.authenticate("local", {
-    successRedirect: "/:id",
-    failureRedirect: "/login"
+router.post('/login', notLoggedIn, passport.authenticate("local", {
+    successRedirect: "users/profile",
+    failureRedirect: "/login",
+    failureFlash: true,
 }), function (req, res) {
 });
 // Logout Handling
@@ -32,4 +34,13 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
 }
 
+// notloggedin
+function notLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next();
+}
+
 module.exports = router;
+   

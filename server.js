@@ -38,7 +38,7 @@ app.use(express.urlencoded({extended: true}));
 //method override middleware
 app.use(methodOverride('_method'));
 // express flash
-app.use(express.flash());
+app.use(flash());
 //server public files
 app.use(express.static('public'));
 
@@ -46,9 +46,9 @@ app.use(express.static('public'));
 app.use(morgan('tiny'));
 
 app.use(session({
-    secret: "LFG App",
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
 }));
 
 app.use(passport.initialize());
