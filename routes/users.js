@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers')
+const passport = require('passport');
 
 // ROUTES
 router.get('/', userCtrl.users.index);
@@ -19,5 +20,16 @@ router.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
 });
+
+//Profile Page
+router.get("/profile", isLoggedIn, function (req, res) {
+    res.render("users/profile");
+});
+
+// isLoggedIn
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect("/login");
+}
 
 module.exports = router;
