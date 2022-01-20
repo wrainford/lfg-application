@@ -8,10 +8,16 @@ router.get('/:id', userCtrl.users.showUser);
 router.post('/', userCtrl.users.createUser);
 router.delete('/:id', userCtrl.users.destroyUser);
 
-// NEW LOGIN ROUTE
+// Login Handling
 router.post('/login', passport.authenticate("local", {
-    successRedirect: "users/profile",
+    successRedirect: "/:id",
     failureRedirect: "/login"
 }), function (req, res) {
 });
+// Logout Handling
+router.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+});
+
 module.exports = router;
