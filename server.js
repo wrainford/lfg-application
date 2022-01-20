@@ -29,10 +29,18 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 //server public files
 app.use(express.static('public'));
-//morgan
 
 
 app.use(morgan('tiny'));
+
+app.use(require("express-session")({
+    secret: "LFG App",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* ====  Routes & Controllers  ==== */
 //Home Route
