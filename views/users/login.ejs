@@ -4,7 +4,10 @@
 <h1>Login to LFG!</h1>
 
 <h4>Returning User? If So Login to Your Existing LFG Account Below!</h4>
-
+<% if (messages) { %>
+    <p><%= messages.error %></p>
+    
+    <% } %>
 <form action="/login" method="POST">
     <div>
         <label for="email">Email</label>

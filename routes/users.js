@@ -11,7 +11,7 @@ router.post('/', notLoggedIn, userCtrl.users.createAccount);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // Login Handling
-router.post('/login', notLoggedIn, passport.authenticate("local", {
+router.post('/', notLoggedIn, passport.authenticate("local", {
     successRedirect: "users/profile",
     failureRedirect: "/login",
     failureFlash: true,

@@ -3,7 +3,10 @@
 <h1>Create an Account for LFG!</h1>
 
 <h4>Don't Have an Account? Create a New LFG Account Below!</h4>
+<% if (messages) { %>
+<p><%= messages.error %></p>
 
+<% } %>
 <form action="/create" method="POST">
 <div>
     <label for="name">Name</label>
