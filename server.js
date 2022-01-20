@@ -12,6 +12,9 @@ require('./models')
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
+
+
+
 /* ==== Instanced Modules  ==== */
 const app = express();
 /* ====  Configuration  ==== */
@@ -26,6 +29,8 @@ app.use(methodOverride('_method'));
 //server public files
 app.use(express.static('public'));
 //morgan
+
+
 app.use(morgan('tiny'));
 
 /* ====  Routes & Controllers  ==== */
