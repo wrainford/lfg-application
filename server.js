@@ -12,7 +12,8 @@ require('./models')
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
-
+//Passport
+require('./passport')
 
 
 /* ==== Instanced Modules  ==== */
