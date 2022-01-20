@@ -1,7 +1,7 @@
 require('dotenv').config();
 
-/* ==== External Modules ==== */
 const express = require('express');
+const flash = require('express-flash')
 const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
@@ -37,6 +37,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 //method override middleware
 app.use(methodOverride('_method'));
+// express flash
+app.use(express.flash());
 //server public files
 app.use(express.static('public'));
 
@@ -74,3 +76,17 @@ app.use('/create', usersRouter) // need to edit this and user routing for create
 app.listen(PORT, () => {
     console.log(`LFG App is connected on port: ${PORT}`)
 });
+
+export function flash(): any {
+    throw new Error('Function not implemented.');
+}
+
+export function flash(): any {
+    throw new Error('Function not implemented.');
+}
+
+
+export function flash(): any {
+    throw new Error('Function not implemented.');
+}
+
