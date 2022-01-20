@@ -1,27 +1,27 @@
 <%- include("../partials/header") %>
 
-<form action="/games" method="post">
+<form action="/games/<%= game._id %>?_method=PUT" method="post">
 
     <label>Title</label>
-    <input type="text" name="title">
+    <input type="text" name="title" value="<%= game.title %>">
 
     <label>Release Date:</label>
-    <input type="text" name="releaseDate">
+    <input type="text" name="releaseDate" value="<%= game.releaseDate %>">
 
     <label>Genre</label>
-    <input type="text" name="genre">
+    <input type="text" name="genre" value="<%= game.genre %>">
 
     <label>Rating</label>
     <select name="rating">
-        <option value="E">E</option>
-        <option value="E10+">E10+</option>
-        <option value="T">T</option>
-        <option value="M">M</option>
-        <option value="AO">AO</option>
-        <option value="RP">RP</option>
+        <option value="E" <%= game.rating === "E" ? "selected" : ""%>>E</option>
+        <option value="E10+" <%= game.rating === "E10+" ? "selected" : ""%>>E10+</option>
+        <option value="T" <%= game.rating === "T" ? "selected" : ""%>>T</option>
+        <option value="M" <%= game.rating === "M" ? "selected" : ""%>>M</option>
+        <option value="AO" <%= game.rating === "AO" ? "selected" : ""%>>AO</option>
+        <option value="RP" <%= game.rating === "RP" ? "selected" : ""%>>RP</option>
     </select>
 
-    <input type="submit" value="Add Game">
+    <input type="submit" value="Update">
 </form>
 
 <%- include("../partials/footer") %>
