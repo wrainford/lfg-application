@@ -6,7 +6,14 @@ const bcrypt = require('bcryptjs')
 
 // INDEX Profile Page
 const userHome = (req, res) => {
-    res.render('index');
+    res.render('index', { title: 'User Profile',
+    id: req.user.id,
+    name: req.user.name,
+    userName: req.user.userName,
+    location: req.user.location,
+    discordId: req.user.discordId,
+    favoriteGames: req.user.favoriteGames,
+    });
 }
 
 
@@ -21,6 +28,39 @@ const loginPage = (req, res) => {
     res.render('login')
 };
 
+// CREATE New User Handling
+const createAccount = async (req, res) => {
+    const userFound = await User.findOne( { email: req.body.email})
+    if (userFound) {
+        req.flash('error', 'This email already exists! Please try another.')
+        res.redirect('/create')
+    }
+    else {
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            const user = new User({
+                _id: new mongoose.Types.ObjectId(),
+                name: req.body.name,
+                userName: req.body.userName,
+                password: hashedPassword,
+                location: req.body.location,
+                email: req.body.email,
+                discordId: req.body.discordId,
+            })
+            await user.save()
+            res.redirect('/login');
+        } catch (error) {
+            console.log(error);
+            res.redirect('/create')
+        }
+    }
+}
+
+//LOGOUT User Delete Handling
+const logoutUser = (req, res) => {
+    req.logout();
+    res.redirect("/");
+}
 
 
 // INDEX - will display all users
@@ -86,54 +126,9 @@ const createUser = (req, res, next) => {
         }
     })
 }
-const createAccount = async (req, res) => {
-    const userFound = await User.findOne( { email: req.body.email})
-    if (userFound) {
-        req.flash('error', 'This email already exists! Please try another.')
-        res.redirect('/create')
-    }
-    else {
-        try {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10)
-            const user = new User({
-                _id: new mongoose.Types.ObjectId(),
-                name: req.body.name,
-                userName: req.body.userName,
-                password: hashedPassword,
-                location: req.body.location,
-                email: req.body.email,
-                discordId: req.body.discordId,
-            })
-            await user.save()
-            res.redirect('/login');
-        } catch (error) {
-            console.log(error);
-            res.redirect('/create')
-        }
-    }
-}
 
-// LOGGING IN USER
-const loginUser = (req, res, next) => {
-    User.find({ email: req.body.email })
-    .exec()
-    .then(user => {
-        if (user.length <1) {
-            return res.render('users/invalid') // account doesnt exist
-        }
-        User.compare(req.body.password, user[0].password, (err, result) => {
-            if (err) {
-                return res.send(err)
-            }
-            if (result) {
-                return res.redirect('users/profile') //need to alter the redirect after user login
-            }
-        })
-    })
-    .catch(err => {
-        res.send(err)
-    })
-}
+
+
 
 // DELETE USER - Remove Account
 const destroyUser = (req, res, next) => {
@@ -154,8 +149,8 @@ module.exports = {
     newUser,
     createUser,
     destroyUser,
-    loginUser,
     createAccount,
-    loginPage
+    loginPage,
+    logoutUser
 
 }
