@@ -14,30 +14,34 @@
 <p><%= messages.error %></p>
 
 <% } %>
-<form action='/create' method="POST">
-<div>
+<form action='/create' method="POST" enctype="multipart/form-data">
+<div class="form-group">
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" class="form-control" id="name" name="name" required placeholder="your name">
 </div>
-<div>
+<div class="form-group">
     <label for="userName">User Name</label>
-    <input type="text" id="userName" name="userName" required>
+    <input type="text" class="form-control" id="userName" name="userName" required placeholder="pick a cool username">
 </div>
-<div>
+<div class="form-group">
     <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" class="form-control" id="email" name="email" required placeholder="LFG@app.com">
 </div>
-<div>
+<div class="form-group">
     <label for="location">Location</label>
-    <input type="location" id="location" name="location">
+    <input type="location" class="form-control" id="location" name="location" placeholder="at your computer?">
 </div>
-<div>
+<div class="form-group">
     <label for="discordId">Discord ID</label>
-    <input type="text" id="discordId" name="discordId">
+    <input type="text" class="form-control" id="discordId" name="discordId" placeholder="ilovediscord">
 </div>
 <div>
     <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" required class="form-control" placeholder="********">
+</div>
+<div class="form-group">
+    <label for="profileImg">Upload a Profile Picture!</label>
+    <input type="file" name="profileImg" id="profileImg" class="form-control">
 </div>
 <button type="submit">Create Account!</button>
 </form>
