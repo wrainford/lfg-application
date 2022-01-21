@@ -44,19 +44,7 @@ router.get("/logout", function (req, res) {
     })
 })*/
 
-// isLoggedIn
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.render("/login");
-}
 
-// notloggedin
-function notLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.render('/')
-    }
-    next();
-}
 
 module.exports = router;
    
