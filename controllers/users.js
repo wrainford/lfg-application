@@ -20,7 +20,7 @@ const userHome = (req, res) => {
 // CREATE New User Page
 // NEW USER / CREATE ACCOUNT PAGE
 const newUser = (req,res) => {
-    res.render("/create")
+    res.render("create")
 };
 
 //LOGIN Login Page 
@@ -147,6 +147,6 @@ module.exports = {
     newUser,
     createAccount,
     loginPage,
-    logoutUser
+    logoutUser,
 
 }

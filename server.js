@@ -61,7 +61,7 @@ app.use(passport.session());
 app.use('/users', usersRouter)
 app.use('/', usersRouter) // need to edit this and user routing for create account
 app.use("/games", gamesRouter);
-
+app.use('/create', usersRouter)
 //404 Route
 /* ====  Server Listener  ==== */
 
