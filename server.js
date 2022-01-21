@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 //Require Models for Mongoose
 require('./models')
 const User = require('./models/user')
+const Games = require("./models/game")
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");

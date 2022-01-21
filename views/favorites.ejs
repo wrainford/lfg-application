@@ -1,0 +1,7 @@
+<%- include("./partials/header") %>
+
+<p><% user.favoriteGames.forEach(function(i) { %></p>
+    <%= i.title %>
+    <% }) %>
+
+<%- include("./partials/footer") %>
