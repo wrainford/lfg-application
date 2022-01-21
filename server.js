@@ -56,24 +56,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* ====  Routes & Controllers  ==== */
-//Home Route
-/*app.get("/", (req, res) => {
-    res.render('index')
-});*/
 
-//LOGIN ROUTE
-/*app.get("/login", (req, res) => {
-    res.render('users/login')
-});*/
 
-//Account creation route
-/*app.get("/create", (req,res) => {
-    res.render("users/create")
-});*/
-// Profile Page
-/*app.get("/profile", (req, res) => {
-    res.render("users/profile")
-})*/
 app.use('/users', usersRouter)
 app.use('/', usersRouter) // need to edit this and user routing for create account
 

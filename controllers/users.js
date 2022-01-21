@@ -20,7 +20,7 @@ const userHome = (req, res) => {
 // CREATE New User Page
 // NEW USER / CREATE ACCOUNT PAGE
 const newUser = (req,res) => {
-    res.render("users/create")
+    res.render("/create")
 };
 
 //LOGIN Login Page 
@@ -64,7 +64,7 @@ const logoutUser = (req, res) => {
 
 
 // INDEX - will display all users
-
+/*
 const index = (req, res) => {
     User.find({}, function (err, allUsers) {
         if (err) return res.send(err);
@@ -75,10 +75,10 @@ const index = (req, res) => {
     })
 }
 
+*/
 
 
-
-// SHOW USER / PROFILE PAGE
+/*// SHOW USER / PROFILE PAGE
 
 const showUser = (req, res) => {
     console.log(req.params.id);
@@ -136,7 +136,7 @@ const destroyUser = (req, res, next) => {
         if(err) return res.send(err);
         return res.redirect('index') //redirect back tot he views/index page
     })
-}
+}*/
 
 
 
@@ -144,11 +144,7 @@ const destroyUser = (req, res, next) => {
 
 module.exports = {
     userHome,
-    index,
-    showUser,
     newUser,
-    createUser,
-    destroyUser,
     createAccount,
     loginPage,
     logoutUser
