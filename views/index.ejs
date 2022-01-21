@@ -12,8 +12,8 @@
     <h2>Favorite Games:<%= favoriteGames %></h2>
     <h2>Location:<%= location %></h2>
 
-    <form action="/create" method="get">
-        <button type="submit">Create Account</button>
+    <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit">Logout!</button>
     </form>
 
     <form action="/login" method="get">
