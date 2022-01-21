@@ -3,6 +3,26 @@ const User = require('../models/user');
 const passport = require('passport')
 const flash = require('express-flash')
 const bcrypt = require('bcryptjs')
+
+// INDEX Profile Page
+const userHome = (req, res) => {
+    res.render('index');
+}
+
+
+// CREATE New User Page
+// NEW USER / CREATE ACCOUNT PAGE
+const newUser = (req,res) => {
+    res.render("users/create")
+};
+
+//LOGIN Login Page 
+const loginPage = (req, res) => {
+    res.render('login')
+};
+
+
+
 // INDEX - will display all users
 
 const index = (req, res) => {
@@ -15,23 +35,29 @@ const index = (req, res) => {
     })
 }
 
-// SHOW
+
+
+
+// SHOW USER / PROFILE PAGE
 
 const showUser = (req, res) => {
     console.log(req.params.id);
     User.findById(req.params.id, function (err, foundUser) {
         if (err) return res.send(err);
-        const context = {user: foundUser}
         return res.render('users/profile', { title: 'Profile',
-            context
-        })
+        id: req.user.id,
+        name: req.user.name,
+        userName: req.user.userName,
+        location: req.user.location,
+        discordId: req.user.discordId,
+        favoriteGames: req.user.favoriteGames,
+        }) 
+        
     })
 }
 
-// NEW USER / CREATE ACCOUNT PAGE
-const newUser = (req, res) => {
-    res.render('users/create', {title: 'Create an Account'})
-}
+
+
 
 
 // CREATE NEW USER - Previous version without bcrypt
@@ -122,6 +148,7 @@ const destroyUser = (req, res, next) => {
 
 
 module.exports = {
+    userHome,
     index,
     showUser,
     newUser,
@@ -129,5 +156,6 @@ module.exports = {
     destroyUser,
     loginUser,
     createAccount,
+    loginPage
 
 }

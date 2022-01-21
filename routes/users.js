@@ -1,20 +1,30 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers')
 const passport = require('passport');
+const user = require('../models/user');
 
 // ROUTES
-router.get('/', userCtrl.users.index);
-router.get('/create', userCtrl.users.newUser);
-router.get('/:id', userCtrl.users.showUser);
 
-router.post('/', notLoggedIn, userCtrl.users.createAccount);
+// INDEX Profile Page
+router.get("/", userCtrl.users.userHome);
+// LOGIN Login Page
+router.get('/login', userCtrl.users.loginPage);
+// CREATE New User Page
+router.get('/create', userCtrl.users.newUser);
+router.get('/users', userCtrl.users.index);
+
+
+
+router.get(`/users/${user.id}`, userCtrl.users.showUser);
+
+router.post('/create', notLoggedIn, userCtrl.users.createAccount);
 router.delete('/:id', userCtrl.users.destroyUser);
 
 // Login Handling
-router.post('/', notLoggedIn, passport.authenticate("local", {
-    successRedirect: "users/profile",
-    failureRedirect: "/login",
-    failureFlash: true,
+router.post('/login', notLoggedIn, passport.authenticate("local", {
+    successRedirect: `/users/${user.id}`,
+    failureRedirect: "users/login",
+    failureFlash: 'Wrong Username or Password',
 }), function (req, res) {
 });
 // Logout Handling
@@ -24,20 +34,26 @@ router.get("/logout", function (req, res) {
 });
 
 //Profile Page
-router.get("/profile", isLoggedIn, function (req, res) {
-    res.render("users/profile");
-});
+/*router.get("/profile", isLoggedIn, (req, res) => {
+    res.render("users/profile", {
+        name: req.user.name,
+        userName: req.user.userName,
+        location: req.user.location,
+        discordId: req.user.discordId,
+        
+    })
+})*/
 
 // isLoggedIn
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
-    res.redirect("/login");
+    res.render("/login");
 }
 
 // notloggedin
 function notLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-        return res.redirect('/')
+        return res.render('/')
     }
     next();
 }

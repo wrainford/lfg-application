@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 /* ==== Internal Modules ==== */
 //Require Models for Mongoose
 require('./models')
+const User = require('./models/user')
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
@@ -56,21 +57,26 @@ app.use(passport.session());
 
 /* ====  Routes & Controllers  ==== */
 //Home Route
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
     res.render('index')
-});
+});*/
 
 //LOGIN ROUTE
-app.get("/login", (req, res) => {
+/*app.get("/login", (req, res) => {
     res.render('users/login')
-});
+});*/
 
 //Account creation route
-app.get("/create", (req,res) => {
+/*app.get("/create", (req,res) => {
     res.render("users/create")
-});
-app.use('/create', usersRouter) // need to edit this and user routing for create account
-app.use('/login', usersRouter)
+});*/
+// Profile Page
+/*app.get("/profile", (req, res) => {
+    res.render("users/profile")
+})*/
+app.use('/users', usersRouter)
+app.use('/', usersRouter) // need to edit this and user routing for create account
+
 //404 Route
 /* ====  Server Listener  ==== */
 
