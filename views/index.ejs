@@ -5,8 +5,15 @@
 
     <p>Looking For Gamers is a revolutionary new social media platform designed to connect gamers together based on similar tastes.</p>
 
-    <form action="/create" method="get">
-        <button type="submit">Create Account</button>
+    <h1>User Profile Page</h1>
+    <h2>Hello <%= name %></h2>
+    <h2>User Name:<%= userName %></h2>
+    <h2>Discord Id:<%= discordId %></h2>
+    <h2>Favorite Games:<%= favoriteGames %></h2>
+    <h2>Location:<%= location %></h2>
+
+    <form action="/logout?_method=DELETE" method="POST">
+        <button type="submit">Logout!</button>
     </form>
 
     <form action="/login" method="get">
