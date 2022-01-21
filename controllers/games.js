@@ -12,7 +12,7 @@ const show = (req, res) => {
     db.Game.findById(req.params.id, function (err, foundGame) {
         if (err) return res.send(err);
         const context = { game: foundGame };
-        return res.render("game/show", context);
+        return res.render("games/show", context);
     });
 };
 

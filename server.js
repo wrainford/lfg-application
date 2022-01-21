@@ -55,11 +55,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* ====  Routes & Controllers  ==== */
 
+/* ====  Routes & Controllers  ==== */
 
 app.use('/users', usersRouter)
 app.use('/', usersRouter) // need to edit this and user routing for create account
+app.use("/games", gamesRouter);
 
 //404 Route
 /* ====  Server Listener  ==== */
