@@ -59,7 +59,7 @@ const createAccount = async (req, res) => {
 //LOGOUT User Delete Handling
 const logoutUser = (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/login");
 }
 
 

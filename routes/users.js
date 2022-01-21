@@ -24,16 +24,16 @@ router.post('/login', notAuthenticated, passport.authenticate("local", {
 // CREATE New User Post Handling
 router.post('/create', notAuthenticated, userCtrl.users.createAccount);
 // LOGOUT User Delete Handling
-router.get('/logout', userCtrl.users.logoutUser);
+router.delete('/logout', userCtrl.users.logoutUser);
 
 
 
 
-router.get('/users', userCtrl.users.index);
+/*router.get('/users', userCtrl.users.index);
 
 router.get(`/users/${user.id}`, userCtrl.users.showUser);
 
-router.delete('/:id', userCtrl.users.destroyUser);
+*/
 
 
 
