@@ -6,6 +6,27 @@ const {
     notAuthenticated,
     authenticated,
 } = require('../auth/auth');
+const multer = require('multer')
+
+// PROFILE PICTURE UPLOAD USING MULTER
+// Defining Storage for Profile Images
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads/pfImages');
+    },
+// Restore file extension
+filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+},
+})
+// Multer Upload Parameters for Profile Image
+const upload = multer({
+    storage: storage,
+    limits: {
+        fieldSize:1024*1024 * 5,
+    },
+})
+
 // ROUTES
 
 // INDEX Profile Page
@@ -22,7 +43,7 @@ router.post('/login', notAuthenticated, passport.authenticate("local", {
 })
 );
 // CREATE New User Post Handling
-router.post('/create', notAuthenticated, userCtrl.users.createAccount);
+router.post('/create', notAuthenticated, upload.single('pfImg'), userCtrl.users.createAccount);
 // LOGOUT User Delete Handling
 router.delete('/logout', userCtrl.users.logoutUser);
 

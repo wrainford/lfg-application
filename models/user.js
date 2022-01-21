@@ -31,7 +31,7 @@ const userSchema = mongoose.Schema(
         },
         favoriteGames: [{type: mongoose.Schema.Types.ObjectId, ref:"Game"}],
 
-        profileImg: {
+        pfImg: {
             type: String,
         }
     },
