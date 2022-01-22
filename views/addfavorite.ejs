@@ -1,12 +1,19 @@
 <%- include("./partials/header") %>
 
-<div class="overflow-hidden p-3 p-md-5 m-md-3" style="color:#38283a;">
-    <ul>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+    <h3 class="display-5">Edit Favorites<br>
+    <small class="text-faded">Add or remove games from the database to your favorites list</small></h3>
+</div>
+
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="background-color: #b1c1aa; color:#38283a;">
+    <h3 class="display-5">Dont see what you like?<br>
+    <small class="text-faded">Remember to add it <a href="/games">here</a></small></h3>
+    <br>
+    <ul class="list-group list-group-flush w-50" style="background-color: #b1c1aa;">
         <% games.forEach(function(i) { %>
-            <li>
+            <li class="list-group-item" style="background-color: #b1c1aa;">
                 <p>
-                    <%= i.title %> |
-                    <a href="/games/<%= i._id %>" class="btn btn-outline-secondary">Info</a>
+                    <h5><a href="/games/<%= i._id %>"><%= i.title %></a></h5>
                     <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
                         <form action="/addfavorites/<%= user.id %>?_method=DELETE" method="post">
                             <input name="gameId" type="hidden" value="<%= i._id %>">
@@ -22,7 +29,7 @@
             </li>
         <% }); %>
     </ul>
-    <form action="/favorites/<%= user.id %>" method="get">
+    <form action="/favorites/<%= user.id %>" method="get" style="margin-top: 10px;">
         <input type="submit" value="Return" class="btn btn-outline-secondary">
     </form>
 </div>
