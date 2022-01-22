@@ -49,22 +49,7 @@ AAU I want to be suggested games I should play next based on my previously playe
 
 ## Dependencies
 
-bcrypt
-bcryptjs
-body-parser
-discord-oauth2
-dotenv
-ejs
-express
-express-flash
-express-session
-method-override
-mongoose
-morgan
-multer"
-passport
-passport-local
-passport-local-mongoose
+bcrypt, bcryptjs, body-parser, discord-oauth2, dotenv, ejs, express, express-flash, express-session, method-override, mongoose, morgan, multer, passport, passport-local, passport-local-mongoose
 
 
 
