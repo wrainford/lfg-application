@@ -6,7 +6,7 @@ const newEmail =  (req, res) => {
         return res.redirect(req.get('referer'));
     });
 };
-
+    
 module.exports = {
     newEmail
 };
