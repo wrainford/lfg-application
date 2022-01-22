@@ -1,5 +1,16 @@
 <%- include("./partials/header") %>
-div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="background-color: #b1c1aa; color:#38283a;">
+    <p><% user.favoriteGames.forEach(function(i) { %></p>
+        <%= i.title %>
+        <% }) %>
+
+    <form action="/addfavorites/<%= user.id %>" method="get" style="margin-top: 25px;">
+        <input type="submit" value="Edit List" class="btn btn-default">
+    </form>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
 
     <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
     
@@ -26,12 +37,5 @@ div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="backgroun
     </form>
 </div>
 
-<p><% user.favoriteGames.forEach(function(i) { %></p>
-    <%= i.title %>
-    <% }) %>
-
-<form action="/addfavorites/<%= user.id %>" method="get">
-    <input type="submit" value="Edit List" class="btn btn-default">
-</form>
 <%- include("./partials/gamingNews") %>
 <%- include("./partials/footer") %>
