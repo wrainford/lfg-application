@@ -29,6 +29,8 @@ router.post('/login', notAuthenticated, passport.authenticate("local", {
 router.post("/addfavorites/:id", authenticated, userCtrl.users.addFav);
 // CREATE New User Post Handling
 router.post('/create', notAuthenticated, userCtrl.users.createAccount);
+//Remove game from favorites
+router.delete("/addfavorites/:id", authenticated, userCtrl.users.removeFav);
 // LOGOUT User Delete Handling
 router.delete('/logout', userCtrl.users.logoutUser);
 
