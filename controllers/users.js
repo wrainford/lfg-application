@@ -27,7 +27,7 @@ const showFav = (req, res) => {
     });
 };
 
-const addFav = (req, res) => {
+const editFav = (req, res) => {
     User.findById(req.params.id)
     .populate("favoriteGames").exec(function (err, foundUser) {
         if (err) return res.send(err);
@@ -170,6 +170,6 @@ module.exports = {
     loginPage,
     logoutUser,
     showFav,
-    addFav
+    editFav
 
 }

@@ -13,7 +13,7 @@ router.get("/", authenticated, userCtrl.users.userHome);
 //Favorite games page
 router.get("/favorites/:id", authenticated, userCtrl.users.showFav);
 //Add favorites page
-router.get("/addfavorites/:id", authenticated, userCtrl.users.addFav)
+router.get("/addfavorites/:id", authenticated, userCtrl.users.editFav);
 // LOGIN Login Page
 router.get('/login', notAuthenticated, userCtrl.users.loginPage);
 // CREATE New User Page
@@ -25,6 +25,8 @@ router.post('/login', notAuthenticated, passport.authenticate("local", {
     failureFlash: 'Wrong Username or Password',
 })
 );
+//Add game to favorites
+router.post("/addfavorites/:id", authenticated, userCtrl.users.addFav);
 // CREATE New User Post Handling
 router.post('/create', notAuthenticated, userCtrl.users.createAccount);
 // LOGOUT User Delete Handling
