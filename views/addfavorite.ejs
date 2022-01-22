@@ -1,4 +1,30 @@
 <%- include("./partials/header") %>
+div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+
+    <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
+    
+    <h3 class="display-5">The place where gamers find gamers.</h3>
+
+    <h6 class="lead">Looking For Gamers is a <s>REVOLUTIONARY</s> PRETTY COOL new social media platform designed to connect gamers together based on similar interests! <br>
+    Also...WE KNOW! The site is in the earliest stages of development, so be sure to check back later for future updates.<br><br><br>
+
+    Or join our mailing list for periodic updates on the app! <br>
+    We hate spam just as much as you do, so we promise not to email you a ton! <br>
+    JSYK! By providing your email here, you are opting into receiving emails from us...if that wasn't obvious!</h6>
+
+    <h5 class="display-4 font-weight-normal">Sign up for Updates on LFG!</h5>
+    <form action="/emails" method="POST">
+        <div class="form-group">
+            <% if (messages) { %>
+                <p><%= messages.signup %></p>
+            
+                <% } %>
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" size="100px" name="emailAddress" placeholder="yourname@example.com">
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Sign Up!</button>
+    </form>
+</div>
 
 <ul>
     <% games.forEach(function(i) { %>
@@ -25,5 +51,5 @@
 <form action="/favorites/<%= user.id %>" method="get">
     <input type="submit" value="Return" class="btn btn-default">
 </form>
-
+<%- include("./partials/gamingNews") %>
 <%- include("./partials/footer") %>
