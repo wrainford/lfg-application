@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const db = mongoose.connection;
 
-const dbUrl = process.env.BACKUP;
+const dbUrl = process.env.DATABASE_URL;
 
 
 // MONGOOSE CONNECTION

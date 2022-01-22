@@ -9,7 +9,7 @@
     <h2>Hello <%= name %></h2>
     <h2>User Name:<%= userName %></h2>
     <h2>Discord Id:<%= discordId %></h2>
-    <h2>Favorite Games:<%= favoriteGames %></h2>
+    <a href="/favorites/<%= id %>">Favorites</a>
     <h2>Location:<%= location %></h2>
 
     <form action="/logout?_method=DELETE" method="POST">
