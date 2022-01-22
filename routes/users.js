@@ -56,16 +56,5 @@ router.delete("/addfavorites/:id", authenticated, userCtrl.users.removeFav);
 router.delete('/logout', userCtrl.users.logoutUser);
 
 
-
-
-/*router.get('/users', userCtrl.users.index);
-
-router.get(`/users/${user.id}`, userCtrl.users.showUser);
-
-*/
-
-
-
-
 module.exports = router;
    

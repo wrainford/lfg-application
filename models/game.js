@@ -7,6 +7,9 @@ const gameSchema = new mongoose.Schema(
         genre: {type: String},
         rating: {type: String},
         userScore: {type: Number},
+    },
+    {
+        timestamps: true
     }
 );
 
