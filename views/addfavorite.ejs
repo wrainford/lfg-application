@@ -7,9 +7,12 @@
                 <%= i.title %>
                 <a href="/games/<%= i._id %>">Info</a>
                 <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
-                    <button>Add</button>
-                <% } else { %>
                     <button>Remove</button>
+                <% } else { %>
+                    <form action="/addfavorites/<%= user.id %>" method="post">
+                        <input name="gameId" type="hidden" value="<%= i._id %>">
+                        <button type="submit">Add</button>
+                    </form>
                 <% } %>
             </p>
         </li>
