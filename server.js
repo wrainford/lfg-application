@@ -13,6 +13,7 @@ const User = require('./models/user')
 const routes = require('./routes/index')
 const usersRouter = require("./routes/users");
 const gamesRouter = require("./routes/games");
+const emailsRouter = require("./routes/emails")
 //Passport
 const initializePassport = require('./passport')
 initializePassport(
@@ -62,6 +63,7 @@ app.use('/users', usersRouter)
 app.use('/', usersRouter) // need to edit this and user routing for create account
 app.use("/games", gamesRouter);
 app.use('/create', usersRouter)
+app.use('/emails', emailsRouter);
 //404 Route
 /* ====  Server Listener  ==== */
 

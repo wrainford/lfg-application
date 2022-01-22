@@ -13,17 +13,17 @@
     JSYK! By providing your email here, you are opting into receiving emails from us...if that wasn't obvious!</h6>
 
     <h6>Sign up for Updates on LFG!</h6>
-    <form action="/emails" method="">
+    <form action="/emails" method="POST">
         <div class="form-group">
-            <label for="emails">Email Address</label>
-            <input type="text" class="form-control" id="emails" name="emails" placeholder="yourname@example.com">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="emails" name="emails" placeholder="yourname@example.com">
         </div>
         <button type="submit" class="btn btn-default">Sign Up!</button>
     </form>
 </div>
 
 
-<div class="container-fluid">
+<div class="container-fluid h-100">
     <h1>Create an Account for LFG!</h1>
 
     <h4>Don't Have an Account? Create a New LFG Account Below!</h4>
@@ -33,31 +33,31 @@
     <% } %>
     <form action='/create' method="POST" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="name">Name</label>
+        <label class="form-label" for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" required placeholder="your name">
     </div>
     <div class="form-group">
-        <label for="userName">User Name</label>
+        <label class="form-label" for="userName">User Name</label>
         <input type="text" class="form-control" id="userName" name="userName" required placeholder="pick a cool username">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
+        <label class="form-label" for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" required placeholder="LFG@app.com">
     </div>
     <div class="form-group">
-        <label for="location">Location</label>
+        <label class="form-label" for="location">Location</label>
         <input type="location" class="form-control" id="location" name="location" placeholder="at your computer?">
     </div>
     <div class="form-group">
-        <label for="discordId">Discord ID</label>
+        <label class="form-label" for="discordId">Discord ID</label>
         <input type="text" class="form-control" id="discordId" name="discordId" placeholder="ilovediscord">
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label class="form-label" for="password">Password</label>
         <input type="password" id="password" name="password" required class="form-control" placeholder="********">
     </div>
     <div class="form-group">
-        <label for="pfImg">Upload a Profile Picture!</label>
+        <label class="form-label" for="pfImg">Upload a Profile Picture!</label>
         <input type="file" name="pfImg" id="pfImg" class="form-control">
     </div>
     <button type="submit" class="btn btn-default">Create Account!</button>
