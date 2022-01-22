@@ -1,5 +1,33 @@
 <%- include("./partials/header") %>
-div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="color:#38283a;">
+    <ul>
+        <% games.forEach(function(i) { %>
+            <li>
+                <p>
+                    <%= i.title %> |
+                    <a href="/games/<%= i._id %>">Info</a>
+                    <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
+                        <form action="/addfavorites/<%= user.id %>?_method=DELETE" method="post">
+                            <input name="gameId" type="hidden" value="<%= i._id %>">
+                            <button type="submit" class="btn btn-default">Remove</button>
+                        </form>
+                    <% } else { %>
+                        <form action="/addfavorites/<%= user.id %>" method="post">
+                            <input name="gameId" type="hidden" value="<%= i._id %>">
+                            <button type="submit" class="btn btn-default">Add</button>
+                        </form>
+                    <% } %>
+                </p>
+            </li>
+        <% }); %>
+    </ul>
+    <form action="/favorites/<%= user.id %>" method="get">
+        <input type="submit" value="Return" class="btn btn-default">
+    </form>
+</div>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
 
     <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
     
@@ -26,30 +54,5 @@ div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="backgroun
     </form>
 </div>
 
-<ul>
-    <% games.forEach(function(i) { %>
-        <li>
-            <p>
-                <%= i.title %> |
-                <a href="/games/<%= i._id %>">Info</a>
-                <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
-                    <form action="/addfavorites/<%= user.id %>?_method=DELETE" method="post">
-                        <input name="gameId" type="hidden" value="<%= i._id %>">
-                        <button type="submit" class="btn btn-default">Remove</button>
-                    </form>
-                <% } else { %>
-                    <form action="/addfavorites/<%= user.id %>" method="post">
-                        <input name="gameId" type="hidden" value="<%= i._id %>">
-                        <button type="submit" class="btn btn-default">Add</button>
-                    </form>
-                <% } %>
-            </p>
-        </li>
-    <% }); %>
-</ul>
-
-<form action="/favorites/<%= user.id %>" method="get">
-    <input type="submit" value="Return" class="btn btn-default">
-</form>
 <%- include("./partials/gamingNews") %>
 <%- include("./partials/footer") %>
