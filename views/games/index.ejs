@@ -1,4 +1,20 @@
 <%- include("../partials/header") %>
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="color:#38283a;">
+    <ul class="list-group list-group-flush w-50">
+        <% games.forEach(function(i) { %>
+            <li class="list-group-item">
+                <h5>
+                    <%= i.title %> | 
+                    <a href="/games/<%= i._id %>" class="btn btn-outline-secondary">Info</a>
+                </p>
+            </li>
+        <% }); %>
+    </ul>
+    <form action="/games/new" method="get">
+        <button type="submit" class="btn btn-default">Add Game</button>
+    </form>
+</div>
+
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
 
     <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
@@ -25,21 +41,6 @@
         <button type="submit" class="btn btn-outline-secondary">Sign Up!</button>
     </form>
 </div>
-
-<ul>
-    <% games.forEach(function(i) { %>
-        <li>
-            <h5>
-                <%= i.title %> | 
-                <a href="/games/<%= i._id %>">Info</a>
-            </p>
-        </li>
-    <% }); %>
-</ul>
-<form action="/games/new" method="get">
-    <button type="submit" class="btn btn-default">Add Game</button>
-</form>
-
 
 <%- include("../partials/gamingNews") %>
 <%- include("../partials/footer") %>
