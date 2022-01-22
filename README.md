@@ -1,6 +1,6 @@
 # LFG-App
 
-
+Hosted on Heroku at https://lfg-application.herokuapp.com/
 
 
 ## MVP Scope
