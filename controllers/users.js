@@ -47,6 +47,16 @@ const addFav = (req, res) => {
     });
 };
 
+const removeFav = (req, res) => {
+    User.findById(req.params.id, function(err, user) {
+        const idx = user.favoriteGames.indexOf(req.body.gameId);
+        user.favoriteGames.splice(idx, 1);
+        user.save(function(err) {
+            res.redirect(`/addfavorites/${user.id}`);
+        });
+    });
+};
+
 // CREATE New User Page
 // NEW USER / CREATE ACCOUNT PAGE
 const newUser = (req,res) => {
@@ -180,6 +190,7 @@ module.exports = {
     logoutUser,
     showFav,
     editFav,
-    addFav
+    addFav,
+    removeFav
 
 }
