@@ -11,7 +11,9 @@ const {
 // INDEX Profile Page
 router.get("/", authenticated, userCtrl.users.userHome);
 //Favorite games page
-router.get("/favorites/:id", authenticated, userCtrl.users.showFav)
+router.get("/favorites/:id", authenticated, userCtrl.users.showFav);
+//Add favorites page
+router.get("/addfavorites/:id", authenticated, userCtrl.users.addFav)
 // LOGIN Login Page
 router.get('/login', notAuthenticated, userCtrl.users.loginPage);
 // CREATE New User Page

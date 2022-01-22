@@ -1,0 +1,19 @@
+<%- include("./partials/header") %>
+
+<ul>
+    <% games.forEach(function(i) { %>
+        <li>
+            <p>
+                <%= i.title %>
+                <a href="/games/<%= i._id %>">Info</a>
+                <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
+                    <button>Add</button>
+                <% } else { %>
+                    <button>Remove</button>
+                <% } %>
+            </p>
+        </li>
+    <% }); %>
+</ul>
+
+<%- include("./partials/footer") %>

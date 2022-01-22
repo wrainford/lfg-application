@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Game = require("../models/game");
 const passport = require('passport')
 const flash = require('express-flash')
 const bcrypt = require('bcryptjs');
@@ -23,6 +24,17 @@ const showFav = (req, res) => {
         if (err) return res.send(err);
         const context = { user: foundUser };
         return res.render("favorites", context);
+    });
+};
+
+const addFav = (req, res) => {
+    User.findById(req.params.id)
+    .populate("favoriteGames").exec(function (err, foundUser) {
+        if (err) return res.send(err);
+        Game.find(function(err, foundGames) {
+            const context = { user: foundUser, games: foundGames };
+            return res.render("addfavorite", context);
+        });
     });
 };
 
@@ -157,6 +169,7 @@ module.exports = {
     createAccount,
     loginPage,
     logoutUser,
-    showFav
+    showFav,
+    addFav
 
 }
