@@ -4,6 +4,8 @@
     <%= i.title %>
     <% }) %>
 
-<a href="/addfavorites/<%= user.id %>">Add to Favorites</a>
+<form action="/addfavorites/<%= user.id %>" method="get">
+    <input type="submit" value="Edit List" class="btn btn-default">
+</form>
 
 <%- include("./partials/footer") %>

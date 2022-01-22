@@ -1,14 +1,19 @@
 <%- include("../partials/header") %>
 
-<p><%= game.title %></p>
+<h1><%= game.title %></h1>
+<h4>Release Date:</h3>
 <p><%= game.releaseDate %></p>
+<h4>Genre:</h3>
 <p><%= game.genre %></p>
+<h4>Rating:</h3>
 <p><%= game.rating %></p>
 
-<a href="/games/<%= game._id %>/edit">Edit</a>
+<form action="/games/<%= game._id %>/edit" method="get">
+    <input type="submit" value="Edit" class="btn btn-default">
+</form>
 
 <form action="/games/<%= game._id %>?_method=DELETE" method="post">
-    <input type="submit" value="Delete">
+    <input type="submit" value="Delete" class="btn btn-default">
 </form>
 
 <%- include("../partials/footer") %>
