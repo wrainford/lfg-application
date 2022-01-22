@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Game = require("../models/game");
-const passport = require('passport')
-const flash = require('express-flash')
+const passport = require('passport');
+const flash = require('express-flash');
 const bcrypt = require('bcryptjs');
-const { populate } = require('../models/user');
+const multer = require('multer');
+
 
 // INDEX Profile Page
 const userHome = (req, res) => {
@@ -15,6 +16,7 @@ const userHome = (req, res) => {
     location: req.user.location,
     discordId: req.user.discordId,
     favoriteGames: req.user.favoriteGames,
+    pfImg: req.user.pfImg,
     });
 }
 
@@ -86,6 +88,7 @@ const createAccount = async (req, res) => {
                 location: req.body.location,
                 email: req.body.email,
                 discordId: req.body.discordId,
+                pfImg: req.file.filename,
             })
             await user.save()
             res.redirect('/login');

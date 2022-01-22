@@ -30,6 +30,10 @@ const userSchema = mongoose.Schema(
             type: String,
         },
         favoriteGames: [{type: mongoose.Schema.Types.ObjectId, ref:"Game"}],
+
+        pfImg: {
+            type: String,
+        }
     },
     {
         timestamps: true,
