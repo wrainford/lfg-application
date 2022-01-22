@@ -84,3 +84,16 @@ Wireframe, ERD, and Userflow attached as draw.io files
 ## To Do
 
 * Rebuild app using react.js framework
+* Update UI and UI, as well as to add a more involved CSS process.
+
+# Module Notes
+* Unused Modules
+- Discord Oauth2
+While we installed a number of dependencies in order to fullfill the original scope of our project, many of them were not used as of yet. For example, using the discord-oauth2, went unused for this iteration of our app as we ran into some issues and due to time constraints we were unable to implement it into our login/authentication process. This will be a process we will be using for future versions of our app.
+
+- bcrypt vs. bcryptjs
+In addition, certain other node modules went used used such as bcrypt, as we opted to use bcryptjs in its place. As a native C++ module, bcrypt would be faster than bcryptjs which is a JS module. Due to time constraints and the need to implement additional steps in the process for password encryption using bcrypt, we opted for bcryptjs. However, this would be another change we would like to make in the future. 
+
+# Password Authentication & Encryption
+- Using bcryptjs, we were able to provide our app with the ability to encrypt passwords and have them stored as a hash within the database as opposed to a normal string easily read by anyone in the event of a hack. Using bcrypt we were able to hash the password the user enters, then upon login, the hash is then unhashed and compared to the password the user has entered - either granting them access or not.
+
