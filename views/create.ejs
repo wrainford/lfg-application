@@ -38,60 +38,44 @@
     <% } %>
     <form action='/create' method="POST" enctype="multipart/form-data">
 <div class="row align-items-center ">
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" required placeholder="your name">
     </div>
-    <div class="form-group">
+    <div class="form-group" style="padding-left:10px;">
         <label class="form-label" for="userName">User Name</label>
         <input type="text" class="form-control" id="userName" name="userName" required placeholder="pick a cool username">
     </div>
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" required placeholder="LFG@app.com">
     </div>
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="location">Location</label>
         <input type="location" class="form-control" id="location" name="location" placeholder="at your computer?">
     </div>
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="discordId">Discord ID</label>
         <input type="text" class="form-control" id="discordId" name="discordId" placeholder="ilovediscord">
     </div>
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="password">Password</label>
         <input type="password" id="password" name="password" required class="form-control" placeholder="********">
     </div>
-    <div class="form-group">
+    <div class="form-group"style="padding-left:10px;">
         <label class="form-label" for="pfImg">Upload a Profile Picture!</label>
         <input type="file" name="pfImg" id="pfImg" class="form-control">
     </div>
-    <button type="submit" class="btn btn-outline-secondary" style="background-color:darkslategrey ;">Create Account!</button>
+    <div class="form-group" style="padding-left:10px;"><br>
+    <button type="submit"  class="btn btn-outline-secondary btn-lg" style="background-color:darkslategrey ;">Create Account!</button>
+    </div>
 </div>
     </form>
     <h4>Do you already have an LFG account?<br> 
     Then <a href="/login">Login Here!</a></h4>
 </div>
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
-   <h2>Gaming News</h2>
 
-    <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/051f13100acadff723ab0a6d11b01c1c.jpg" alt="">
-
-    <h3>This was Inevitable</h3>
-
-    <h4>Microsoft's proposed $70 billion purchase of Activision Blizzard is just the beginning </br> by: Luke Plunkett</h4>
-
-    <p>
-        Microsoft’s purchase of Activision Blizzard has been momentous news today, as much for the scale of the deal as its shock value. But we shouldn’t be too surprised. 
-        This was inevitable. A handful of companies have always wanted to own everything, and nothing is going to stop them. 
-        The proposed sale—technicalities dictate I need to remind you that it still needs to be approved—involves some earth-shattering numbers. 
-        $70 billion is fake money, a make-believe sum normally reserved for national budgets and defence deals. Uniting these two companies, 
-        with all those properties and all those games, alongside a home console and a massively-popular subscription service, has instantly changed the entire shape of the video 
-        game industry.
-    </p>
-
-    <a href="https://kotaku.com/this-was-inevitable-1848380310">Read More</a>
-</div>
+<%- include("./partials/gamingNews") %>
 
 <%- include("./partials/footer") %>
 

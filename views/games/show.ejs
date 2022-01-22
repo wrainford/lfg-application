@@ -1,19 +1,62 @@
 <%- include("../partials/header") %>
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="background-color: #b1c1aa; color:#38283a; ;">
+    <h3 style="color:darkslategrey; text-align:center;" class="display-5">Here's the game you were looking for!</h3><br><br><br>
+    <div class="col-sm-6 mx-auto">
+        <div class="card ">
+            <img  src="https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/051f13100acadff723ab0a6d11b01c1c.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="card-title"><%= game.title %><br>
+                    <small class="text-muted">Release Date: <%= game.releaseDate %></small>
+                </h3>
+                <h3 class="card-title">Genre:<br>
+                    <small class="text-muted"><%= game.genre %></small>
+                </h3>
+                <h3 class="card-title">Rating:<br>
+                    <small class="text-muted"><%= game.rating %></small>
+                </h3>
+            </div>
+            <div class="card-footer" style="text-align: center;">
+                <form style="padding-top:15px;" action="/games/<%= game._id %>/edit" method="get">
+                    <input type="submit" value="Edit" class="btn btn-outline-secondary btn-lg">
+                </form>
+                
+                <form style="padding-top:15px;" action="/games/<%= game._id %>?_method=DELETE" method="post">
+                    <input type="submit" value="Delete" class="btn btn-outline-secondary btn-lg">
+                </form>
+            </div>
+        </div>
+</div>
+</div>
 
-<h1><%= game.title %></h1>
-<h4>Release Date:</h3>
-<p><%= game.releaseDate %></p>
-<h4>Genre:</h3>
-<p><%= game.genre %></p>
-<h4>Rating:</h3>
-<p><%= game.rating %></p>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
 
-<form action="/games/<%= game._id %>/edit" method="get">
-    <input type="submit" value="Edit" class="btn btn-default">
-</form>
+    <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
+    
+    <h3 class="display-5">The place where gamers find gamers.</h3>
 
-<form action="/games/<%= game._id %>?_method=DELETE" method="post">
-    <input type="submit" value="Delete" class="btn btn-default">
-</form>
+    <h6 class="lead">Looking For Gamers is a <s>REVOLUTIONARY</s> PRETTY COOL new social media platform designed to connect gamers together based on similar interests! <br>
+    Also...WE KNOW! The site is in the earliest stages of development, so be sure to check back later for future updates.<br><br><br>
 
+    Or join our mailing list for periodic updates on the app! <br>
+    We hate spam just as much as you do, so we promise not to email you a ton! <br>
+    JSYK! By providing your email here, you are opting into receiving emails from us...if that wasn't obvious!</h6>
+
+    <h5 class="display-4 font-weight-normal">Sign up for Updates on LFG!</h5>
+    <form action="/emails" method="POST">
+        <div class="form-group">
+            <% if (messages) { %>
+                <p><%= messages.signup %></p>
+            
+                <% } %>
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" size="100px" name="emailAddress" placeholder="yourname@example.com">
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Sign Up!</button>
+    </form>
+</div>
+
+
+
+
+<%- include("../partials/gamingNews") %>
 <%- include("../partials/footer") %>

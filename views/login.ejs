@@ -1,12 +1,32 @@
 
 <%- include("./partials/header") %>
 
-<h1>Looking For Gamers</h1>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+
+    <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
     
-    <h3>The place where gamers find gamers.</h3>
+    <h3 class="display-5">The place where gamers find gamers.</h3>
 
-    <p>Looking For Gamers is a revolutionary new social media platform designed to connect gamers together based on similar tastes.</p>
+    <h6 class="lead">Looking For Gamers is a <s>REVOLUTIONARY</s> PRETTY COOL new social media platform designed to connect gamers together based on similar interests! <br>
+    Also...WE KNOW! The site is in the earliest stages of development, so be sure to check back later for future updates.<br><br><br>
 
+    Or join our mailing list for periodic updates on the app! <br>
+    We hate spam just as much as you do, so we promise not to email you a ton! <br>
+    JSYK! By providing your email here, you are opting into receiving emails from us...if that wasn't obvious!</h6>
+
+    <h5 class="display-4 font-weight-normal">Sign up for Updates on LFG!</h5>
+    <form action="/emails" method="POST">
+        <div class="form-group">
+            <% if (messages) { %>
+                <p><%= messages.signup %></p>
+            
+                <% } %>
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" size="100px" name="emailAddress" placeholder="yourname@example.com">
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Sign Up!</button>
+    </form>
+</div>
 
 <h1>Login to LFG!</h1>
 
@@ -30,23 +50,6 @@
     <h4>Don't have an LFG account?<br> 
        Then <a href="/create">Create an Account Here!</a></h4>
 
-       <h2>Gaming News</h2>
-
-    <img src="https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/051f13100acadff723ab0a6d11b01c1c.jpg" alt="">
-
-    <h3>This was Inevitable</h3>
-
-    <h4>Microsoft's proposed $70 billion purchase of Activision Blizzard is just the beginning </br> by: Luke Plunkett</h4>
-
-    <p>
-        Microsoft’s purchase of Activision Blizzard has been momentous news today, as much for the scale of the deal as its shock value. But we shouldn’t be too surprised. 
-        This was inevitable. A handful of companies have always wanted to own everything, and nothing is going to stop them. 
-        The proposed sale—technicalities dictate I need to remind you that it still needs to be approved—involves some earth-shattering numbers. 
-        $70 billion is fake money, a make-believe sum normally reserved for national budgets and defence deals. Uniting these two companies, 
-        with all those properties and all those games, alongside a home console and a massively-popular subscription service, has instantly changed the entire shape of the video 
-        game industry.
-    </p>
-
-    <a href="https://kotaku.com/this-was-inevitable-1848380310">Read More</a>
+       <%- include("./partials/gamingNews") %>
 
 <%- include("./partials/footer") %>
