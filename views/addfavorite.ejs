@@ -1,0 +1,25 @@
+<%- include("./partials/header") %>
+
+<ul>
+    <% games.forEach(function(i) { %>
+        <li>
+            <p>
+                <%= i.title %>
+                <a href="/games/<%= i._id %>">Info</a>
+                <% if(user.favoriteGames.map(a => a._id).toString().includes(i._id)) { %>
+                    <form action="/addfavorites/<%= user.id %>?_method=DELETE" method="post">
+                        <input name="gameId" type="hidden" value="<%= i._id %>">
+                        <button type="submit">Remove</button>
+                    </form>
+                <% } else { %>
+                    <form action="/addfavorites/<%= user.id %>" method="post">
+                        <input name="gameId" type="hidden" value="<%= i._id %>">
+                        <button type="submit">Add</button>
+                    </form>
+                <% } %>
+            </p>
+        </li>
+    <% }); %>
+</ul>
+
+<%- include("./partials/footer") %>

@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
+const Game = require("../models/game");
 const passport = require('passport');
 const flash = require('express-flash');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+
 
 // INDEX Profile Page
 const userHome = (req, res) => {
@@ -18,6 +20,44 @@ const userHome = (req, res) => {
     });
 }
 
+const showFav = (req, res) => {
+    User.findById(req.params.id)
+    .populate("favoriteGames").exec(function (err, foundUser) {
+        if (err) return res.send(err);
+        const context = { user: foundUser };
+        return res.render("favorites", context);
+    });
+};
+
+const editFav = (req, res) => {
+    User.findById(req.params.id)
+    .populate("favoriteGames").exec(function (err, foundUser) {
+        if (err) return res.send(err);
+        Game.find(function(err, foundGames) {
+            const context = { user: foundUser, games: foundGames };
+            return res.render("addfavorite", context);
+        });
+    });
+};
+
+const addFav = (req, res) => {
+    User.findById(req.params.id, function(err, user) {
+        user.favoriteGames.push(req.body.gameId);
+        user.save(function(err) {
+            res.redirect(`/addfavorites/${user.id}`);
+        });
+    });
+};
+
+const removeFav = (req, res) => {
+    User.findById(req.params.id, function(err, user) {
+        const idx = user.favoriteGames.indexOf(req.body.gameId);
+        user.favoriteGames.splice(idx, 1);
+        user.save(function(err) {
+            res.redirect(`/addfavorites/${user.id}`);
+        });
+    });
+};
 
 // CREATE New User Page
 // NEW USER / CREATE ACCOUNT PAGE
@@ -151,5 +191,9 @@ module.exports = {
     createAccount,
     loginPage,
     logoutUser,
+    showFav,
+    editFav,
+    addFav,
+    removeFav
 
 }
