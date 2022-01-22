@@ -1,5 +1,35 @@
 <%- include("./partials/header") %>
-div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
+<div class="overflow-hidden p-3 p-md-5 m-md-3" style="background-color: #b1c1aa; color:whitesmoke; ;">
+    <h3 style="color:darkslategrey; text-align:center;" class="display-5">Hello <%= name %>!
+    <small class="text-muted"> Welcome to Your LFG Profile! </small></h3><br><br><br>
+    <div class="col-sm-6 mx-auto" style="background-color:#2b2b2b">
+        <div class="card" style="border:none; background-color:#2b2b2b; text-align:center;"><br><br><br><br>
+            <img src="/uploads/pfImages/<%=pfImg%>" alt="" class="rounded-circle mx-auto d-block"
+                style="width: 300px; height:300px;">
+            <div class="card-body">
+                <h3 class="card-title">User Name:<br>
+                    <small style="color: #b1c1aa;" class="text-muted"><%= userName %></small>
+                </h3>
+                <h3 class="card-title">Location:<br>
+                    <small style="color: #b1c1aa;" class="text-muted"><%= location %></small>
+                </h3>
+                <h3 class="card-title">Discord Id:<br>
+                    <small style="color: #b1c1aa;" class="text-muted"><%= discordId %></small>
+                </h3>
+                <h3 style="border:none; background-color:#b1c1aa; " class="btn btn-outline-secondary btn-lg"><a style="color:darkolivegreen;" href="/favorites/<%= id %>">@<%=userName%>'s Favorite Games!<br>
+                    <small class="text-muted">(that's you btw!)</small>
+                </h3>
+            </div>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button class="btn btn-outline-secondary btn-lg" type="submit">Logout!</button>
+            </form>
+            <div class="card-footer" style="text-align: center;">
+                <p class="footer">LFG COPYRIGHT 2022</p>
+            </div>
+        </div>
+</div>
+</div>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3" style="background-color:#38283a; color:#e5e5e5; ;">
 
 <h1 class="display-4 font-weight-normal">Looking For Gamers</h1>
 
@@ -26,23 +56,6 @@ JSYK! By providing your email here, you are opting into receiving emails from us
 </form>
 </div>
 
-    <h1>User Profile Page</h1>
-    <img src="/uploads/pfImages/<%=pfImg%>" alt="" class="rounded-circle"
-    style="width: 100px; height:100px;">
-    <h2>Hello <%= name %></h2>
-    <h2>User Name:<%= userName %></h2>
-    <h2>Discord Id:<%= discordId %></h2>
-    <a href="/favorites/<%= id %>">Favorites</a>
-    <h2>Location:<%= location %></h2>
-
-    <form action="/logout?_method=DELETE" method="POST">
-        <button type="submit">Logout!</button>
-    </form>
-
-    <form action="/login" method="get">
-        <button type="submit">Login</button>
-    </form>
-
-    <%- include("./partials/gamingNews") %>
+<%- include("./partials/gamingNews") %>
 
 <%- include("./partials/footer") %>
