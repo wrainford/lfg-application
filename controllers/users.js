@@ -38,6 +38,15 @@ const editFav = (req, res) => {
     });
 };
 
+const addFav = (req, res) => {
+    User.findById(req.params.id, function(err, user) {
+        user.favoriteGames.push(req.body.gameId);
+        user.save(function(err) {
+            res.redirect(`/addfavorites/${user.id}`);
+        });
+    });
+};
+
 // CREATE New User Page
 // NEW USER / CREATE ACCOUNT PAGE
 const newUser = (req,res) => {
@@ -170,6 +179,7 @@ module.exports = {
     loginPage,
     logoutUser,
     showFav,
-    editFav
+    editFav,
+    addFav
 
 }
