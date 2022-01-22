@@ -59,13 +59,17 @@ app.use(passport.session());
 
 
 /* ====  Routes & Controllers  ==== */
-
-app.use('/users', usersRouter)
-app.use('/', usersRouter) // need to edit this and user routing for create account
+app.use('/', usersRouter)
 app.use("/games", gamesRouter);
 app.use('/create', usersRouter)
 app.use('/emails', emailsRouter);
 //404 Route
+app.get("/404", (req, res) => {
+    res.render("error/404");
+});
+app.get("*", (req, res) => {
+    res.redirect("/404");
+});
 /* ====  Server Listener  ==== */
 
 app.listen(PORT, () => {
