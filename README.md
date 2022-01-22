@@ -47,9 +47,37 @@ AAU I want to reply to others comments on a game.
 AAU I want to like other users statuses and games played.
 AAU I want to be suggested games I should play next based on my previously played games.
 
+## Technologies Used
+
+EJS   
+JavaScript  
+Node.js   
+Express   
+MongoDB Atlas 
+
+Imported Bootstrap via CDN from:  
+https://getbootstrap.com/docs/3.4/css/
+
 ## Dependencies
 
-bcrypt, bcryptjs, body-parser, discord-oauth2, dotenv, ejs, express, express-flash, express-session, method-override, mongoose, morgan, multer, passport, passport-local, and passport-local-mongoose.
+bcrypt    
+bcryptjs    
+body-parser   
+discord-oauth2    
+dotenv    
+ejs   
+express   
+express-flash   
+express-session   
+method-override   
+mongoose    
+morgan    
+multer    
+passport    
+passport-local    
+passport-local-mongoose
 
 
+## To Do
 
+* Rebuild app using react.js framework
