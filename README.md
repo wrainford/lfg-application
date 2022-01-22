@@ -77,6 +77,9 @@ passport
 passport-local    
 passport-local-mongoose
 
+## Planning Resources
+
+Wireframe, ERD, and Userflow attached as draw.io files
 
 ## To Do
 
