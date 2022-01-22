@@ -32,7 +32,7 @@ initializePassport(
 /* ==== Instanced Modules  ==== */
 const app = express();
 /* ====  Configuration  ==== */
-const PORT = 4000;
+const PORT = process.env.PORT || 5120;
 
 app.set('view engine', 'ejs');
 /* ====  Middleware  ==== */
