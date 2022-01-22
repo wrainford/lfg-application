@@ -20,5 +20,6 @@ mongoose.connect(dbUrl, {
 
 module.exports = {
     User: require('./user'),
-    Game: require("./game")
+    Game: require("./game"),
+    Email: require("./email")
 }
